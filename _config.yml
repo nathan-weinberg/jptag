@@ -1,0 +1,39 @@
+# Site settings. Edit the values below; restart `jekyll serve` after changes.
+
+title: Jamaica Plain Transportation Action Group
+short_title: JPTAG
+description: >-
+  Neighbors working for safer, more reliable transportation in Jamaica Plain.
+mission: >-
+  PLACEHOLDER — mission statement goes here.
+
+# Set to "" if the site is served from a custom domain or <user>.github.io repo.
+# (The GitHub Actions build overrides this automatically.)
+baseurl: "/jptag"
+url: ""
+
+instagram_url: https://www.instagram.com/jptransportationaction
+
+google_group:
+  # Join/landing page for the Google Group, e.g. https://groups.google.com/g/<group-name>
+  url: ""
+
+calendar:
+  # ID of a *public* Google Calendar (Calendar settings → Integrate calendar → Calendar ID),
+  # e.g. abc123@group.calendar.google.com. No API key or credentials are needed.
+  id: ""
+  timezone: America/New_York
+
+nav:
+  - title: Home
+    url: /
+  - title: Calendar
+    url: /calendar/
+  - title: Projects
+    url: /projects/
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
