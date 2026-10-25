@@ -62,6 +62,20 @@ sections:
         url: https://www.mbta.com/projects/forest-hills-station-improvements
         status: Contract awarded
 
+  - id: south-huntington-ave
+    title: South Huntington Ave
+    emoji: 🚶 🚲 🚌 🚋
+    agency: City of Boston
+    projects:
+      - title: Huntington Ave / South Huntington Ave E-Branch Accessibility Project
+        description: >-
+          Joint City and MBTA redesign of the Green Line E-Branch from Brigham Circle to Heath Street,
+          adding accessible boarding platforms, a center-running transitway, and street safety improvements.<br><br>
+          The MBTA's <a href="https://web.archive.org/web/20211006004231id_/https://static1.squarespace.com/static/57757a3cff7c50f318d8aae0/t/5c904501f9619a6b93cd1ee0/1552958737005/05-Programs.pdf#page=13">Focus40 plan</a>
+          cites a dedicated right-of-way on this stretch as a prerequisite for a potential E line extension to Hyde Square.
+        url: https://www.boston.gov/departments/transportation/huntington-avenuesouth-huntington-avenue-e-branch-accessibility-project
+        status: Design
+
   - id: southwest-corridor-park
     title: Southwest Corridor Park
     emoji: 🚶 🚲
