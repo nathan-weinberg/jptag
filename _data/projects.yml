@@ -3,24 +3,27 @@
 #
 # Each project needs: title, description (one sentence), url (official project page).
 # `status` is optional and shown as a small badge.
+# Section `emoji` is optional and shown after the section title.
 
 last_updated: 2026-10-25
 
 sections:
   - id: arborway-jamaicaway
     title: Arborway / Jamaicaway
+    emoji: 🚶 🚲 🚗
     agency: Massachusetts Department of Conservation and Recreation
     projects:
-      - title: Arborway Parkways Improvement Project
+      - title: Arborway Improvement Project
         description: >-
           Redesign of roughly two miles of the Arborway from Jamaica Pond to Forest Hills,
           replacing the Kelley and Murray rotaries with signalized intersections and adding
           separated bike and pedestrian paths.
-        url: https://www.mass.gov/info-details/arborway-parkways-improvement-project
+        url: https://www.mass.gov/info-details/arborway-improvement-project
         status: Design
 
   - id: centre-south
     title: Centre St / South St
+    emoji: 🚶 🚲 🚗 🚌
     agency: City of Boston
     projects:
       - title: Jamaica Plain Centre/South Transportation Action Plan
@@ -32,13 +35,9 @@ sections:
 
   - id: columbus-ave
     title: Columbus Ave
+    emoji: 🚶 🚲 🚗 🚌
     agency: City of Boston
     projects:
-      - title: Columbus Avenue Bus Lanes
-        description: >-
-          Center-running bus lanes on Columbus Avenue between Jackson Square and Walnut Avenue.
-        url: https://www.boston.gov/departments/transportation/columbus-avenue-bus-lanes
-        status: Complete
       - title: Tremont / Columbus Bus Lanes (Phase 2)
         description: >-
           Proposed extension of center-running bus lanes from Jackson Square to Ruggles,
@@ -48,57 +47,28 @@ sections:
 
   - id: orange-line-bus
     title: Orange Line / Bus Routes
+    emoji: 🚇 🚌
     agency: Massachusetts Bay Transportation Authority
     note: "Bus routes we follow: 14, 22, 29, 35, 36, 38, 39, and 41."
     projects:
-      - title: Forest Hills Station Improvements
-        description: >-
-          Upgrades to Forest Hills, the hub for the Orange Line, Needham Line, and many bus routes.
-        url: https://www.mbta.com/projects/forest-hills-station-improvements
-        status: Contract awarded
       - title: Jackson Square Station Accessibility Improvements
         description: >-
           Renovation of Jackson Square station for full accessibility, including a redundant elevator.
         url: https://www.mbta.com/projects/jackson-square-station-accessibility-improvements
         status: In progress
-      - title: Ruggles Station Improvements
+      - title: Forest Hills Station Improvements
         description: >-
-          New Commuter Rail platform and busway improvements at Ruggles, serving the Orange Line
-          and routes 22 and 29.
-        url: https://www.mbta.com/projects/ruggles-station-improvements
-        status: In progress
-      - title: Orange Line Program
-        description: >-
-          Line-wide investments in Orange Line vehicles, track, signals, and stations.
-        url: https://www.mbta.com/projects/orange-line-program
-        status: In progress
-      - title: Bus Network Redesign
-        description: >-
-          Systemwide redesign of MBTA bus routes to provide more frequent, reliable service.
-        url: https://www.mbta.com/projects/bus-network-redesign
-        status: In progress
-      - title: Bus Network Redesign Proposed Updates
-        description: >-
-          Proposed amendments to the Bus Network Redesign that were released for public comment.
-        url: https://www.mbta.com/projects/bus-network-redesign-proposed-updates
-        status: In progress
-      - title: Transit Priority Strategy
-        description: >-
-          Bus lanes, queue jumps, and signal priority to speed up buses, including routes 35 and 36.
-        url: https://www.mbta.com/projects/transit-priority-strategy
-        status: In progress
-      - title: Fare-Free Program for Routes 23, 28, and 29
-        description: >-
-          City-funded fare-free service on routes 23, 28, and 29.
-        url: https://www.mbta.com/projects/fare-free-program-routes-23-28-and-29
-        status: In progress
+          Upgrades to Forest Hills, the hub for the Orange Line, Needham Line, and many bus routes.
+        url: https://www.mbta.com/projects/forest-hills-station-improvements
+        status: Contract awarded
 
   - id: southwest-corridor-park
     title: Southwest Corridor Park
+    emoji: 🚶 🚲
     agency: Massachusetts Department of Conservation and Recreation
     projects:
       - title: Southwest Corridor Park Action Plan
         description: >-
           DCR plan to renovate the four-mile, 52-acre linear park from Back Bay to Forest Hills.
-        url: https://www.mass.gov/info-details/southwest-corridor-park-master-plan
+        url: https://www.mass.gov/info-details/southwest-corridor-park-action-plan
         status: Planning

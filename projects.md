@@ -17,7 +17,7 @@ permalink: /projects/
 
 {% for section in site.data.projects.sections %}
 <section class="project-section" id="{{ section.id }}">
-  <h2>{{ section.title }}</h2>
+  <h2>{{ section.title }}{% if section.emoji %} <span class="emoji" aria-hidden="true">{{ section.emoji }}</span>{% endif %}</h2>
   <p class="agency">Managed by the {{ section.agency }}</p>
   {% if section.note %}<p class="section-note">{{ section.note }}</p>{% endif %}
 

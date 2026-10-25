@@ -12,6 +12,8 @@ mission: >-
 baseurl: "/jptag"
 url: ""
 
+logo: /jptag_logo.jpg
+
 instagram_url: https://www.instagram.com/jptransportationaction
 
 google_group:
