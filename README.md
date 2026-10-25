@@ -35,7 +35,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open <http://localhost:4000/jptag/>.
+Then open <http://localhost:4000/>.
 
 ## Deployment
 

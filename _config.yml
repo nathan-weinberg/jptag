@@ -9,8 +9,8 @@ mission: >-
 
 # Set to "" if the site is served from a custom domain or <user>.github.io repo.
 # (The GitHub Actions build overrides this automatically.)
-baseurl: "/jptag"
-url: ""
+baseurl: ""
+url: "https://jptag.org"
 
 logo: /jptag_logo.jpg
 
