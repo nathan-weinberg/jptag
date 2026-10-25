@@ -1,0 +1,15 @@
+{
+  "name": "jptag-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Scripts that refresh project data for the JPTAG site",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "refresh": "node scripts/refresh.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.6.0"
+  }
+}

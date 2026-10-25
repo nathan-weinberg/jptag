@@ -1,0 +1,23 @@
+# Controls how automatically fetched projects (_data/projects_auto/) appear on the Projects page.
+# Hand-written entries in _data/projects.yml are always shown and always win over fetched ones.
+
+# Which section each source's projects go into. Either a section id, or a map of
+# title regex -> section id with a `default`. A source with no routing is not shown.
+routing:
+  mbta:
+    Columbus: columbus-ave
+    default: orange-line-bus
+  dcr:
+    Southwest Corridor: southwest-corridor-park
+    default: arborway-jamaicaway
+
+# Fetched projects to never show (URLs). Add anything you reject in a refresh PR here,
+# or it will be proposed again next week.
+hide:
+  - https://www.mbta.com/projects/columbus-avenue-bus-lanes
+  - https://www.mbta.com/projects/ruggles-station-improvements
+  - https://www.mbta.com/projects/orange-line-program
+  - https://www.mbta.com/projects/fare-free-program-routes-23-28-and-29
+  - https://www.mbta.com/projects/back-bay-station-improvements
+  - https://www.mbta.com/projects/wellington-yard-and-maintenance-facility-updates
+  - https://www.boston.gov/departments/transportation/columbus-avenue-bus-lanes

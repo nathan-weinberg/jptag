@@ -1,0 +1,44 @@
+name: Refresh project data
+
+on:
+  schedule:
+    - cron: "17 12 * * 1" # Mondays, ~8am Eastern
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-projects
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      # Each source is isolated: a failing source keeps its previous data and is noted in the report.
+      - name: Fetch project data
+        run: node scripts/refresh.mjs --report "$RUNNER_TEMP/report.md"
+
+      # Changes go to a PR so a volunteer reviews them before they reach the site.
+      # Merging the PR triggers the normal Pages deploy.
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/refresh-projects
+          delete-branch: true
+          add-paths: |
+            _data/projects_auto/**
+            _data/projects_candidates/**
+          commit-message: Refresh automated project data
+          signoff: true
+          title: "Projects: weekly data refresh"
+          body-path: ${{ runner.temp }}/report.md
+          labels: automated
