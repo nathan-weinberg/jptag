@@ -101,8 +101,16 @@ main.wrap { flex: 1; padding-top: 2rem; padding-bottom: 3rem; }
 }
 
 /* Home */
+.hero { text-align: center; }
 .hero h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.2; margin-top: 1rem; }
-.mission { font-size: 1.2rem; color: var(--muted); max-width: 40rem; }
+.mission { font-size: 1.2rem; color: var(--muted); }
+.instagram-embed { margin: 1.5rem 0; }
+/* embed.js sets inline min-width and margins; override so it fits narrow screens */
+.instagram-embed .instagram-media {
+  margin: 0 auto !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
 .button {
   display: inline-block;
   margin-top: 1rem;
@@ -203,11 +211,6 @@ main.wrap { flex: 1; padding-top: 2rem; padding-bottom: 3rem; }
   background: var(--surface);
   font-size: 0.9rem;
   color: var(--muted);
-}
-.instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
 }
 .site-footer .wrap {
   display: flex;

@@ -9,10 +9,12 @@ Website for the Jamaica Plain Transportation Action Group, built with [Jekyll](h
 | Group name, mission statement | `_config.yml` (`title`, `mission`) |
 | Google Group sign-up link | `_config.yml` → `google_group.url` |
 | Google Calendar | `_config.yml` → `calendar.id`, `calendar.timezone` |
-| Instagram link (footer) | `_config.yml` → `instagram_url` |
+| Instagram embed (homepage) | `_config.yml` → `instagram_url` |
 | Projects | `_data/projects.yml` (remember to bump `last_updated`) |
 
 If the Google Group URL or calendar ID is left blank, the site shows a "coming soon" note instead.
+
+The homepage Instagram preview uses Instagram's own profile embed. The account must be public and have embedding enabled (Instagram **Settings → Account privacy → Embeds**); otherwise only a plain "View JPTAG on Instagram" link shows.
 
 ### Google Calendar
 
