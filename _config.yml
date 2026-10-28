@@ -23,7 +23,7 @@ google_group:
 calendar:
   # ID of a *public* Google Calendar (Calendar settings → Integrate calendar → Calendar ID),
   # e.g. abc123@group.calendar.google.com. No API key or credentials are needed.
-  id: ""
+  id: "3cdba8f6048c00c3949fa6dfc10b7e89473c1662e646f9613b2ec45558616bcc@group.calendar.google.com"
   timezone: America/New_York
 
 nav:
