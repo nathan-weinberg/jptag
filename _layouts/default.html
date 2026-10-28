@@ -26,6 +26,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      {% if site.source_url != "" %}<p><a href="{{ site.source_url }}">View the source code for this site</a></p>{% endif %}
     </div>
   </footer>
 </body>

@@ -16,6 +16,9 @@ logo: /jptag_logo.jpg
 
 instagram_url: https://www.instagram.com/jptransportationaction
 
+# Link to the site's source code, shown in the footer. Set to "" to hide it.
+source_url: https://github.com/nathan-weinberg/jptag
+
 google_group:
   # Join/landing page for the Google Group, e.g. https://groups.google.com/g/<group-name>
   url: ""
