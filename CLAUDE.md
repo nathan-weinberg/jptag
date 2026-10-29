@@ -15,7 +15,7 @@ bundle exec jekyll build   # quickest way to check that Liquid/YAML changes rend
 ruby scripts/refresh.rb    # refetch _data/projects_auto/ and _data/projects_candidates/ (stdlib only, no bundle needed)
 ```
 
-Requires Ruby 2.7+; CI uses 3.3. Pushing to `main` deploys via `.github/workflows/pages.yml`, which builds with `JEKYLL_ENV=production` and passes `--baseurl` from `actions/configure-pages`.
+Requires Ruby 2.7+; CI uses 3.3. Always run Ruby through rvm with the version in `.ruby-version` (the system default is 2.7, which lacks the bundled gems): either `rvm use 3.3` first, or prefix commands with `~/.rvm/bin/rvm 3.3 do` (e.g. `~/.rvm/bin/rvm 3.3 do bundle exec jekyll build`) when `rvm use` isn't available, as in non-login shells. Don't change `PATH`/`GEM_HOME` by hand. Pushing to `main` deploys via `.github/workflows/pages.yml`, which builds with `JEKYLL_ENV=production` and passes `--baseurl` from `actions/configure-pages`.
 
 ## Commits
 

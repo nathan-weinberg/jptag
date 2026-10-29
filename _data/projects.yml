@@ -5,7 +5,7 @@
 # `status` is optional and shown as a small badge.
 # Section `emoji` is optional and shown after the section title.
 
-last_updated: 2026-10-25
+last_updated: 2026-10-28
 
 sections:
   - id: arborway-jamaicaway
@@ -44,6 +44,22 @@ sections:
           serving routes 14, 15, 22, 23, 28, 41, 44, and 66.
         url: https://www.boston.gov/departments/transportation/tremont-columbus-bus-lanes
         status: Design
+      - title: Egleston Square Project
+        description: >-
+          Safety improvements for all road users traveling through the Egleston Square area.
+        url: https://www.boston.gov/departments/transportation/project/egleston-square-project
+        status: Design
+
+  - id: neighborhood-streets
+    title: Neighborhood Streets
+    emoji: 🚶 🚲 🚗
+    agency: City of Boston
+    projects:
+      - title: McBride Street
+        description: >-
+          Rebuilt sidewalks, repaving, speed humps, and a contraflow bike lane on McBride Street.
+        url: https://www.boston.gov/departments/transportation/project/mcbride-street
+        status: Design
 
   - id: orange-line-bus
     title: Orange Line / Bus Routes
@@ -73,7 +89,7 @@ sections:
           adding accessible boarding platforms, a center-running transitway, and street safety improvements.<br><br>
           The MBTA's <a href="https://web.archive.org/web/20211006004231id_/https://static1.squarespace.com/static/57757a3cff7c50f318d8aae0/t/5c904501f9619a6b93cd1ee0/1552958737005/05-Programs.pdf#page=13">Focus40 plan</a>
           cites a dedicated right-of-way on this stretch as a prerequisite for a potential E line extension to Hyde Square.
-        url: https://www.boston.gov/departments/transportation/huntington-avenuesouth-huntington-avenue-e-branch-accessibility-project
+        url: https://www.boston.gov/departments/transportation/project/huntington-ave-south-huntington-ave-e-branch-accessibility
         status: Design
 
   - id: southwest-corridor-park
