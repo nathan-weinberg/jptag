@@ -45,12 +45,10 @@ Hand-written projects live in `_data/projects.yml`. Each section has a title, ma
 
 Never edit files under `_data/projects_auto/` or `_data/projects_candidates/` by hand; they are overwritten on every refresh.
 
-To run the refresh locally (Node 20+, see `.nvmrc`):
+To run the refresh locally (same Ruby as the site, no extra gems):
 
 ```sh
-nvm use
-npm install
-npm run refresh
+ruby scripts/refresh.rb
 ```
 
 One-time setup: in **Settings → Actions → General → Workflow permissions**, check **Allow GitHub Actions to create and approve pull requests**.

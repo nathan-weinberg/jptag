@@ -18,15 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # The scripts use only the standard library, so no bundle install is needed.
+      - uses: ruby/setup-ruby@v1
         with:
-          node-version-file: .nvmrc
-          cache: npm
-      - run: npm ci
+          ruby-version: "3.3"
 
       # Each source is isolated: a failing source keeps its previous data and is noted in the report.
       - name: Fetch project data
-        run: node scripts/refresh.mjs --report "$RUNNER_TEMP/report.md"
+        run: ruby scripts/refresh.rb --report "$RUNNER_TEMP/report.md"
 
       # Changes go to a PR so a volunteer reviews them before they reach the site.
       # Merging the PR triggers the normal Pages deploy.

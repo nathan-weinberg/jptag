@@ -12,6 +12,7 @@ Static Jekyll site for the Jamaica Plain Transportation Action Group (JPTAG), se
 bundle install
 bundle exec jekyll serve   # http://localhost:4000/ — restart after editing _config.yml (not hot-reloaded)
 bundle exec jekyll build   # quickest way to check that Liquid/YAML changes render
+ruby scripts/refresh.rb    # refetch _data/projects_auto/ and _data/projects_candidates/ (stdlib only, no bundle needed)
 ```
 
 Requires Ruby 2.7+; CI uses 3.3. Pushing to `main` deploys via `.github/workflows/pages.yml`, which builds with `JEKYLL_ENV=production` and passes `--baseurl` from `actions/configure-pages`.
