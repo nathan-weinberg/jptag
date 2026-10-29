@@ -40,6 +40,11 @@ permalink: /projects/
 {% endfor %}
 
 <p class="projects-footnote">
+  {% if site.data.projects.auto_fetched %}
+  These project lists are curated by volunteers, with some entries gathered automatically from official agency websites, and may not reflect the latest changes.
+  Information last updated {{ site.data.projects.last_updated | date: "%B %-d, %Y" }}; agency websites last checked {{ site.data.projects.auto_fetched | date: "%B %-d, %Y" }}.
+  {% else %}
   These project lists are maintained manually by volunteers using official agency pages and may not reflect the latest changes.
   Information last updated {{ site.data.projects.last_updated | date: "%B %-d, %Y" }}.
+  {% endif %}
 </p>
