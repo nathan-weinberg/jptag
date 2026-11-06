@@ -20,6 +20,9 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="{{ site.logo | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {%- if site.goatcounter != "" and jekyll.environment == "production" %}
+  <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  {%- endif %}
 </head>
 <body>
   <header class="site-header">

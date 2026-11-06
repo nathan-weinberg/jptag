@@ -19,6 +19,10 @@ instagram_url: https://www.instagram.com/jptransportationaction
 # Link to the site's source code, shown in the footer. Set to "" to hide it.
 source_url: https://github.com/nathan-weinberg/jptag
 
+# GoatCounter site code (the "jptag" in jptag.goatcounter.com) for cookie-free page-view
+# analytics. Only loaded in production builds. Set to "" to disable.
+goatcounter: jptag
+
 google_group:
   # Join/landing page for the Google Group, e.g. https://groups.google.com/g/<group-name>
   url: "https://groups.google.com/g/jptransportationaction"
