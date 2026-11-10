@@ -5,7 +5,7 @@
 # `status` is optional and shown as a small badge.
 # Section `emoji` is optional and shown after the section title.
 
-last_updated: 2026-10-28
+last_updated: 2026-11-10
 
 sections:
   - id: arborway-jamaicaway
@@ -38,11 +38,12 @@ sections:
     emoji: 🚶 🚲 🚗 🚌
     agency: City of Boston
     projects:
-      - title: Tremont / Columbus Bus Lanes (Phase 2)
+      - title: Columbus/Tremont Safer Streets & Faster Buses
         description: >-
-          Proposed extension of center-running bus lanes from Jackson Square to Ruggles,
-          serving routes 14, 15, 22, 23, 28, 41, 44, and 66.
-        url: https://www.boston.gov/departments/transportation/tremont-columbus-bus-lanes
+          Bus lanes and safety improvements on Columbus Ave and Tremont St from Jackson Square
+          to Ruggles (formerly Columbus Ave Bus Lanes Phase 2), serving routes 15, 22, 23, 28,
+          29, 66, and more.
+        url: https://www.boston.gov/departments/transportation/columbus-tremont-safer-streets-and-faster-buses
         status: Design
       - title: Egleston Square Project
         description: >-

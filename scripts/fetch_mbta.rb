@@ -12,7 +12,7 @@ module Refresh
     MODE_TAGS = %w[bus subway commuter_rail ferry local_bus].freeze
     # Projects tagged with many routes are systemwide programs; keep them only if they mention JP-area places.
     MAX_TAGS = 4
-    JP_PLACES = /forest hills|green st|stony brook|jackson sq|roxbury crossing|jamaica plain|centre st|south st|columbus av|egleston|hyde sq|arborway/i.freeze
+    JP_PLACES = /forest hills|green st|stony brook|jackson sq|roxbury crossing|jamaica plain|centre st|south st|columbus|egleston|hyde sq|arborway/i.freeze
 
     module_function
 
