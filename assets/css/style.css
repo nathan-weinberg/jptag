@@ -81,6 +81,7 @@ main.wrap { flex: 1; padding-top: 2rem; padding-bottom: 3rem; }
 }
 .tabs ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem;
   margin: 0;
   padding: 0;
@@ -98,6 +99,9 @@ main.wrap { flex: 1; padding-top: 2rem; padding-bottom: 3rem; }
 .tabs a[aria-current="page"] {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+@media (max-width: 30rem) {
+  .tabs a { padding: 0.6rem 0.55rem; }
 }
 
 /* Home */
@@ -203,6 +207,30 @@ main.wrap { flex: 1; padding-top: 2rem; padding-bottom: 3rem; }
   margin-top: 3rem;
   font-size: 0.875rem;
   color: var(--muted);
+}
+
+/* Partners */
+.partner-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+}
+.partner-logo {
+  flex: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+}
+.partner h2 { font-size: 1.15rem; margin: 0 0 0.25rem; }
+.partner p { margin: 0; }
+@media (max-width: 30rem) {
+  .partner { flex-direction: column; align-items: flex-start; }
 }
 
 /* Footer */
