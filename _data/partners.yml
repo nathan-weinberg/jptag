@@ -1,0 +1,21 @@
+# Partner organizations shown on the Partners page. Maintained manually.
+#
+# Each partner needs: name, url (their website), description (a sentence or two, based on
+# their own copy). `logo` is optional: a site-relative path to an image in
+# /assets/img/partners/ (square works best). Partners without one get a generic placeholder.
+
+- name: Boston Cyclists Union
+  url: https://www.bostoncyclistsunion.org/
+  logo: /assets/img/partners/bcu.png
+  description: >-
+    The Boston Cyclists Union works to transform the streets of greater Boston into
+    equitable and inviting people-centered spaces, affording access and connection for
+    every body.
+
+- name: Fenway Missing Link Coalition
+  url: https://fenwaymissinglink.org/
+  description: >-
+    A growing coalition of pedestrian, disability, transit, bicycle, healthcare, and
+    community groups, elected officials, and others working to complete Phase III of the
+    Fenway Multi-Use Path, the missing link connecting the Fenway Path to the Muddy River
+    Path.

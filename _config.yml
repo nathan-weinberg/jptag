@@ -40,6 +40,8 @@ nav:
     url: /calendar/
   - title: Projects
     url: /projects/
+  - title: Partners
+    url: /partners/
 
 exclude:
   - README.md
