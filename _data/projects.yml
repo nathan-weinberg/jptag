@@ -41,25 +41,19 @@ sections:
   - id: columbus-ave
     title: Columbus Ave
     emoji: 🚶 🚲 🚗 🚌
-    agency: City of Boston
+    agency: Massachusetts Bay Transportation Authority
     projects:
       - title: Columbus/Tremont Safer Streets & Faster Buses
         description: >-
           Bus lanes and safety improvements on Columbus Ave and Tremont St from Jackson Square
           to Ruggles (formerly Columbus Ave Bus Lanes Phase 2), serving routes 15, 22, 23, 28,
           29, 66, and more.
-        url: https://www.boston.gov/departments/transportation/columbus-tremont-safer-streets-and-faster-buses
+        url: https://www.mbta.com/projects/columbustremont-safer-streets-faster-buses
         contact: betterbusproject@mbta.com
-        status: Design
-      - title: Egleston Square Project
-        description: >-
-          Safety improvements for all road users traveling through the Egleston Square area.
-        url: https://www.boston.gov/departments/transportation/project/egleston-square-project
-        contact: btdprograms@boston.gov
-        status: Design
+        status: In progress
 
   - id: neighborhood-streets
-    title: Neighborhood Streets
+    title: Neighborhood Streets and Squares
     emoji: 🚶 🚲 🚗
     agency: City of Boston
     projects:
@@ -68,6 +62,12 @@ sections:
           Rebuilt sidewalks, repaving, speed humps, and a contraflow bike lane on McBride Street.
         url: https://www.boston.gov/departments/transportation/project/mcbride-street
         contact: better-bike-lanes@boston.gov
+        status: Design
+      - title: Egleston Square Project
+        description: >-
+          Safety improvements for all road users traveling through the Egleston Square area.
+        url: https://www.boston.gov/departments/transportation/project/egleston-square-project
+        contact: btdprograms@boston.gov
         status: Design
 
   - id: orange-line-bus
