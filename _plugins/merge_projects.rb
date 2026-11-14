@@ -4,6 +4,7 @@
 # - Hand-written entries are always shown first and win over fetched ones with the same URL.
 # - Fetched entries are routed to a section and filtered by _data/projects_overrides.yml.
 # - A missing or empty source is skipped, so the page never loses its hand-written entries.
+# - `contacts` (URL -> email) sets a project's `contact`, unless a hand-written entry has its own.
 module JPTAG
   class MergeProjects < Jekyll::Generator
     priority :highest
@@ -13,6 +14,7 @@ module JPTAG
       overrides = site.data["projects_overrides"] || {}
       routing = overrides["routing"] || {}
       hidden = (overrides["hide"] || []).map { |url| norm(url) }
+      contacts = (overrides["contacts"] || {}).transform_keys { |url| norm(url) }
 
       sections = data["sections"].map { |s| s.merge("projects" => (s["projects"] || []).dup) }
       by_id = sections.to_h { |s| [s["id"], s] }
@@ -34,6 +36,15 @@ module JPTAG
           section = by_id[section_for(routing[source], project["title"])] or next
           section["projects"] << project.merge("auto" => true)
           seen << key
+        end
+      end
+
+      sections.each do |s|
+        s["projects"].map! do |p|
+          # Overrides beat scraped addresses on fetched entries, but never a hand-written `contact`.
+          extra = contacts[norm(p["url"])]
+          keep = !p["auto"] && !p["contact"].to_s.strip.empty?
+          extra && !keep ? p.merge("contact" => extra) : p
         end
       end
 

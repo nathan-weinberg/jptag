@@ -36,6 +36,7 @@ module Refresh
           "title" => a["title"].strip,
           "description" => Refresh.summarize(Refresh.plain_text(desc.is_a?(Hash) ? desc["value"] : desc)),
           "url" => SITE + a.dig("path", "alias"),
+          "contact" => Refresh.contact_email(SITE + a.dig("path", "alias")),
           "source_updated" => a["changed"]&.slice(0, 10),
         }.compact
       end

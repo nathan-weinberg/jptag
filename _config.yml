@@ -33,6 +33,23 @@ calendar:
   id: "3cdba8f6048c00c3949fa6dfc10b7e89473c1662e646f9613b2ec45558616bcc@group.calendar.google.com"
   timezone: America/New_York
 
+# "Take action" button on each project with a `contact` email. It opens the visitor's mail
+# client with this subject and body; {title} and {url} are replaced with the project's.
+# Set label to "" to hide the buttons.
+take_action:
+  label: Take action
+  subject: "Comments on {title}"
+  body: |-
+    Hello,
+
+    I'm writing about the {title} ({url}).
+
+    [Share your thoughts, concerns, or questions here.]
+
+    Thank you,
+    [Your name]
+    [Your neighborhood or address]
+
 nav:
   - title: Home
     url: /

@@ -57,6 +57,7 @@ module Refresh
               "title" => a["title"].strip,
               "description" => Refresh.summarize(intro),
               "url" => SITE + a.dig("path", "alias"),
+              "contact" => Refresh.contact_email(SITE + a.dig("path", "alias")),
               "status" => stage,
               "source_updated" => a["changed"][0, 10],
               "matched_by" => if by_keyword && by_location then "keyword+location"

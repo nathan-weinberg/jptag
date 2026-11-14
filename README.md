@@ -11,6 +11,7 @@ Website for the Jamaica Plain Transportation Action Group, built with [Jekyll](h
 | Google Calendar | `_config.yml` → `calendar.id`, `calendar.timezone` |
 | Instagram embed (homepage) | `_config.yml` → `instagram_url` |
 | Projects | `_data/projects.yml` (remember to bump `last_updated`) |
+| "Take action" email button text | `_config.yml` → `take_action` |
 
 If the Google Group URL or calendar ID is left blank, the site shows a "coming soon" note instead.
 
@@ -26,7 +27,13 @@ No API key or credentials are needed. The calendar must be **public**:
 
 ### Projects
 
-Hand-written projects live in `_data/projects.yml`. Each section has a title, managing agency, optional note and emoji, and a list of projects with `title`, `description`, `url`, and optional `status`. A section with no projects shows "No active projects tracked right now." Hand-written entries are always shown and take precedence over fetched ones.
+Hand-written projects live in `_data/projects.yml`. Each section has a title, managing agency, optional note and emoji, and a list of projects with `title`, `description`, `url`, and optional `status` and `contact`. A section with no projects shows "No active projects tracked right now." Hand-written entries are always shown and take precedence over fetched ones.
+
+#### Take action button
+
+A project with a `contact` email gets a **Take action** button that opens the visitor's mail client addressed to the project team, with a subject and a fill-in-the-blanks body. The label, subject and body are set under `take_action` in `_config.yml` (`{title}` and `{url}` are filled in per project); set `label: ""` to hide the buttons. Projects without a contact show no button.
+
+Contacts come from, in order: `contact` on a hand-written entry, the `contacts` map in `_data/projects_overrides.yml`, then the address the refresh found on the project's page. The weekly refresh PR flags hand-written entries that have no contact or whose page lists a different address, and fetched entries with no contact.
 
 #### Automated refresh
 
@@ -41,6 +48,7 @@ Hand-written projects live in `_data/projects.yml`. Each section has a title, ma
 `_data/projects_overrides.yml` controls fetched entries:
 
 - `routing`: which section each source's projects go into.
+- `contacts`: URL → email for the Take action button, for fetched projects whose page has no (or the wrong) address.
 - `hide`: URLs to never show. Add anything you reject in a refresh PR here, or it will be proposed again next week.
 
 Never edit files under `_data/projects_auto/` or `_data/projects_candidates/` by hand; they are overwritten on every refresh.

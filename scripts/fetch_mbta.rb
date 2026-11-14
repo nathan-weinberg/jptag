@@ -40,6 +40,7 @@ module Refresh
           "title" => Refresh.plain_text(it["title"]),
           "description" => Refresh.summarize(Refresh.plain_text(it["text"])),
           "url" => SITE + it["path"],
+          "contact" => Refresh.contact_email(SITE + it["path"]),
           "status" => it["field_project_status"],
           "source_updated" => it["updated"],
           "routes" => it["matched"],
