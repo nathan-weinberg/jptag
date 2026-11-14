@@ -18,6 +18,7 @@ report_path = (i = ARGV.index("--report")) && ARGV[i + 1]
 manual = read_yaml("_data/projects.yml")
 overrides = read_yaml("_data/projects_overrides.yml") || {}
 hidden = (overrides["hide"] || []).map { |u| norm_url(u) }
+contact_overrides = (overrides["contacts"] || {}).transform_keys { |u| norm_url(u) }
 manual_entries = manual["sections"].flat_map { |s| (s["projects"] || []).map { |p| p.merge("section" => s["title"]) } }
 manual_by_url = manual_entries.to_h { |p| [norm_url(p["url"]), p] }
 
@@ -53,7 +54,7 @@ SOURCES.each do |src|
                "Copy good ones into `_data/projects.yml`; add the rest to `hide` in `_data/projects_overrides.yml`.\n"
       untracked.each do |p|
         lines << "- [#{p['title']}](#{p['url']})#{is_new.(p)} — #{p['status'] || 'no status'}, " \
-                 "updated #{p['source_updated']}, matched by #{p['matched_by']}"
+                 "updated #{p['source_updated']}, matched by #{p['matched_by']}, contact #{p['contact'] || 'none found'}"
       end
     else
       lines << "No untracked candidates."
@@ -66,7 +67,9 @@ SOURCES.each do |src|
                "(merge this PR to publish; add a URL to `hide` to suppress):\n"
       shown.each do |p|
         status = p["status"] ? " (#{p['status']})" : ""
-        lines << "- [#{p['title']}](#{p['url']})#{is_new.(p)} → `#{section_for(rule, p['title'])}`#{status}"
+        contact = contact_overrides[norm_url(p["url"])] || p["contact"]
+        contact = contact ? ", contact #{contact}" : ", **no contact** (add one under `contacts` in overrides)"
+        lines << "- [#{p['title']}](#{p['url']})#{is_new.(p)} → `#{section_for(rule, p['title'])}`#{status}#{contact}"
       end
     else
       lines << "Nothing new beyond the hand-written entries."
@@ -83,22 +86,37 @@ SOURCES.each do |src|
   lines << ""
 end
 
-# Check that hand-written links still resolve without redirects.
-link_problems = manual_entries.filter_map do |p|
+# Check that hand-written links still resolve without redirects, and that their contacts match the page.
+link_problems = []
+contact_notes = []
+manual_entries.each do |p|
   uri = URI(p["url"])
   res = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https", open_timeout: 30, read_timeout: 30) do |http|
     http.get(uri.request_uri, "User-Agent" => USER_AGENT)
   end
   if res.is_a?(Net::HTTPRedirection)
-    "- #{p['title']}: redirects to #{URI.join(p['url'], res['location'])}"
+    link_problems << "- #{p['title']}: redirects to #{URI.join(p['url'], res['location'])}"
+    next
   elsif !res.is_a?(Net::HTTPSuccess)
-    "- #{p['title']}: HTTP #{res.code} (#{p['url']})"
+    link_problems << "- #{p['title']}: HTTP #{res.code} (#{p['url']})"
+    next
+  end
+
+  ours = p["contact"] || contact_overrides[norm_url(p["url"])]
+  on_page = emails_in(res.body)
+  if ours.nil?
+    contact_notes << "- #{p['title']}: no contact" + (on_page.any? ? "; page lists #{on_page.join(', ')}" : "")
+  elsif on_page.any? && on_page.none? { |e| e.casecmp?(ours) }
+    contact_notes << "- #{p['title']}: ours is #{ours}, page lists #{on_page.join(', ')}"
   end
 rescue StandardError => e
-  "- #{p['title']}: #{e.message} (#{p['url']})"
+  link_problems << "- #{p['title']}: #{e.message} (#{p['url']})"
 end
 lines << "### Hand-written entries\n"
 lines << (link_problems.any? ? "Link problems:\n\n#{link_problems.join("\n")}" : "All #{manual_entries.length} links OK.")
+if contact_notes.any?
+  lines << "\nContacts to check (set `contact` in `_data/projects.yml` if the page is right):\n\n#{contact_notes.join("\n")}"
+end
 
 report = "## Weekly project data refresh\n\n#{lines.join("\n")}\n"
 report_path ? File.write(report_path, report) : puts(report)

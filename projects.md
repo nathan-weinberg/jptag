@@ -30,6 +30,7 @@ permalink: /projects/
         {% if project.status %}<span class="status">{{ project.status }}</span>{% endif %}
       </h3>
       <p>{{ project.description }}</p>
+      {% include take-action.html project=project %}
     </li>
     {% endfor %}
   </ul>

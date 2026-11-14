@@ -1,0 +1,17 @@
+{%- comment -%}
+  "Take action" mailto button for one project. Usage: {% include take-action.html project=project %}
+  Renders nothing unless the project has a `contact` and site.take_action.label is set.
+  url_encode writes spaces as "+", which mail clients don't decode in mailto links, so swap in %20
+  (a literal "+" is already encoded as %2B, so this is safe).
+{%- endcomment -%}
+{%- assign action = site.take_action -%}
+{%- assign contact = include.project.contact | strip -%}
+{%- if contact != "" and action.label and action.label != "" -%}
+{%- assign title = include.project.title | strip_html | strip -%}
+{%- assign subject = action.subject | replace: "{title}", title | replace: "{url}", include.project.url | url_encode | replace: "+", "%20" -%}
+{%- assign body = action.body | replace: "{title}", title | replace: "{url}", include.project.url | url_encode | replace: "+", "%20" -%}
+<p class="project-actions">
+  <a class="button button-small" href="mailto:{{ contact }}?subject={{ subject }}&amp;body={{ body }}"
+     aria-label="{{ action.label | escape }}: email the {{ title | escape }} project team">{{ action.label | escape }}</a>
+</p>
+{%- endif -%}

@@ -38,6 +38,35 @@ module Refresh
     end
   end
 
+  # Site-wide boilerplate addresses that appear on every page of an agency site, not project contacts.
+  IGNORED_EMAILS = %w[digital@boston.gov mayor24reply@boston.gov email@address.com].freeze
+
+  # Fetch a page's HTML, following a few redirects. Returns the final Net::HTTPResponse.
+  def get_page(url, limit: 3)
+    uri = URI(url)
+    res = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https", open_timeout: 30, read_timeout: 30) do |http|
+      http.get(uri.request_uri, "User-Agent" => USER_AGENT)
+    end
+    return res unless res.is_a?(Net::HTTPRedirection) && limit.positive?
+
+    get_page(URI.join(url, res["location"]).to_s, limit: limit - 1)
+  end
+
+  # Project contact addresses linked from a page, most frequently linked first.
+  def emails_in(html)
+    found = html.to_s.scan(/mailto:([^"'?<>\s]+)/i).flatten.map { |e| CGI.unescapeHTML(e).strip }
+    found = found.select { |e| e.include?("@") }.reject { |e| IGNORED_EMAILS.include?(e.downcase) }
+    found.group_by(&:downcase).sort_by.with_index { |(_, all), i| [-all.length, i] }.map { |_, all| all.first }
+  end
+
+  # The contact address for a project page, or nil. Never raises: a missing contact must not fail a source.
+  def contact_email(url)
+    res = get_page(url)
+    res.is_a?(Net::HTTPSuccess) ? emails_in(res.body).first : nil
+  rescue StandardError
+    nil
+  end
+
   # Strip HTML tags and decode entities.
   def plain_text(html)
     CGI.unescapeHTML(html.to_s.gsub(/<[^>]+>/, " ").gsub("&nbsp;", " ")).gsub(/\s+/, " ").strip

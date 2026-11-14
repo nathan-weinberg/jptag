@@ -11,6 +11,11 @@ routing:
     Southwest Corridor: southwest-corridor-park
     default: arborway-jamaicaway
 
+# Contact email (URL -> address) for the "Take action" button, used when a project has no
+# `contact` of its own. Use this for fetched projects whose page lists no address, or lists the
+# wrong one. Hand-written entries in _data/projects.yml should set `contact` directly.
+contacts: {}
+
 # Fetched projects to never show (URLs). Add anything you reject in a refresh PR here,
 # or it will be proposed again next week.
 hide:
